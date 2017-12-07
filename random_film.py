@@ -23,6 +23,9 @@ tmdb.API_KEY = 'yourTMDB-API'
 PLEX_URL = 'http://yourIP:32400'
 PLEX_TOKEN = 'yourplextoken'
 
+#LANGUAGE CODE. example 'es-ES'
+lang = 'XXXX'
+
 # Your library names for movies
 LIBRARY_NAMES = 'MOVIES' 
 
@@ -45,7 +48,7 @@ bot = telegram.Bot(token=KEY)
 titulo = peli_random(LIBRARY_NAMES).title
  
 search = tmdb.Search()
-response = search.movie(language='es-ES',query=titulo)
+response = search.movie(language=lang,query=titulo)
 
 busqueda = search.results[0]
 link_foto ='https://image.tmdb.org/t/p/w500/'+busqueda['poster_path']
