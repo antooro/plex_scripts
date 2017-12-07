@@ -3,6 +3,8 @@ Some useful scripts for plex
 
 ## REQUIREMENTS
 Python 2
+
+
 1- plexapi.
 ```
 pip install plexapi
