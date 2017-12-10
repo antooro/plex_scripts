@@ -49,8 +49,33 @@ titulo = peli_random(LIBRARY_NAMES).title
  
 search = tmdb.Search()
 response = search.movie(language=lang,query=titulo)
+busqueda = None
+busqueda2 = None
+for r in search.results:
+	ye = r['release_date'].split("-")
+	print ye[0],fecha, r['title'],titulo
+	if r['title'] == titulo and fecha == ye[0]:
+		print "asingno"
+		busqueda = r
+		break
+	if busqueda == None and r['title'] == titulo:
+		if busqueda != None:
+			fecha2 = busqueda2['release_date'].split("-")
+			if abs(int(fecha)-int(ye))<abs(int(fecha)-int(fecha2)):
+				busqueda2 = r
+				print "fuerzo mejor encontrado"
+			else:
+				continue
+		else:
+			busqueda2 = r
+			print "fuerzo primero"
 
-busqueda = search.results[0]
+if busqueda == None and busqueda2 != None :
+	busqueda = busqueda2
+elif busqueda2 == None:
+	busqueda = search.results[0]
+	
+	
 link_foto ='https://image.tmdb.org/t/p/w500/'+busqueda['poster_path']
 
 dia = now.strftime("%d-%m-%Y")
