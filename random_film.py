@@ -53,9 +53,8 @@ busqueda = None
 busqueda2 = None
 for r in search.results:
 	ye = r['release_date'].split("-")
-	print ye[0],fecha, r['title'],titulo
+	
 	if r['title'] == titulo and fecha == ye[0]:
-		print "asingno"
 		busqueda = r
 		break
 	if busqueda == None and r['title'] == titulo:
@@ -63,12 +62,12 @@ for r in search.results:
 			fecha2 = busqueda2['release_date'].split("-")
 			if abs(int(fecha)-int(ye))<abs(int(fecha)-int(fecha2)):
 				busqueda2 = r
-				print "fuerzo mejor encontrado"
+				
 			else:
 				continue
 		else:
 			busqueda2 = r
-			print "fuerzo primero"
+			
 
 if busqueda == None and busqueda2 != None :
 	busqueda = busqueda2
