@@ -44,8 +44,9 @@ def peli_random(library_name):
 
 
 bot = telegram.Bot(token=KEY)
-
-titulo = peli_random(LIBRARY_NAMES).title
+pelic = peli_random()
+titulo = pelic.title
+fecha = str(pelic.year)
  
 search = tmdb.Search()
 response = search.movie(language=lang,query=titulo)
