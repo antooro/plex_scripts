@@ -44,7 +44,7 @@ def peli_random(library_name):
 
 
 bot = telegram.Bot(token=KEY)
-pelic = peli_random()
+pelic = peli_random(LIBRARY_NAMES)
 titulo = pelic.title
 fecha = str(pelic.year)
  
